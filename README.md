@@ -1,66 +1,36 @@
-# Pokemon
+# 就决定是你了，皮卡丘！
 
-## 项目简介
+这是一个用来练习前端技能的简单静态网页示例，展示了一个基于 Vue 2 的迷你 Pokémon（神奇宝贝）队伍选择界面。
 
-这个仓库（pokemon）用于存放与 Pokémon 相关的数据与工具脚本。README 包含项目概览、快速启动、使用说明以及贡献指南。请根据仓库实际内容调整具体命令和说明。
+## 项目概览
 
-## 目录结构
+- 文件：`index.html`
+- 主要功能：显示 6 只 Pokémon，可以随机生成新队伍，选择某一只会高亮并显示动画效果与血量条。
+- 主要技术：纯静态页面，使用 Vue 2（通过 CDN）、原生 HTML/CSS、少量内联 JS。
+- 资源：部分样式和字体来自 CDN（Normalize.css、Google Fonts），精灵图使用外部图片 CDN（pokemondb）。
 
-- /data    - 原始或处理后的 Pokémon 数据
-- /src     - 源代码或脚本
-- /examples - 使用示例
-- /tests   - 测试代码
+## 主要特性
 
-（如果仓库目录不同，请按实际结构调整）
+- 支持显示 Pokémon 名称、等级、性别、血量条、特殊效果（心形、糖果等）。
+- 点击某只 Pokémon 会高亮并显示箭头与动画。
+- `New Team` 按钮会随机生成一个新的 6 人队伍（从内置名单中随机选取）。
 
-## 快速开始
+## 如何运行
 
-1. 克隆仓库
+打开项目根目录中的 `index.html`：
+在资源管理器中双击 `index.html`，用浏览器打开。
 
-   git clone https://github.com/CAZAMA1/pokemon.git
-   cd pokemon
+## 开发说明
 
-2. 安装依赖（根据项目语言选择）：
+- 代码集中在 `index.html`，包含内联的样式和脚本，主要组件为 Vue 组件：`Arrow`、`Bg`、`Pokeball`、`Male`、`Female`、`Pokemon`、`List`。
+- 数据源：页面顶部通过 `window.pokemon`、`window.alolan`、`window.candies` 和 `window.team` 定义示例数据。
+- 精灵图 URL 规则：组件中将 Pokémon 名称小写后拼接到 `https://img.pokemondb.net/sprites/lets-go-pikachu-eevee/normal/{name}.png`（alolan 会加后缀 `-alolan`）。
 
-- 如果是 Node.js 项目：
+## 已知限制
 
-  npm install
+- 页面依赖外部 CDN（字体、normalize.css、Vue、精灵图），在离线或被限制的网络环境下部分资源可能不可用。
 
-- 如果是 Python 项目：
+## 许可证 & 鸣谢
 
-  python -m venv venv
-  source venv/bin/activate  # Windows: venv\Scripts\activate
-  pip install -r requirements.txt
-
-3. 运行示例或脚本（示例）：
-
-- Node.js: npm start 或 node src/index.js
-- Python: python src/main.py
-
-## 测试
-
-- 如果使用 Jest/Mocha：npm test
-- 如果使用 pytest：pytest
-
-## 贡献
-
-欢迎贡献！常规流程：
-
-1. Fork 本仓库
-2. 新建分支：git checkout -b feature/your-feature
-3. 提交修改并推送：git commit -m "描述你的修改" && git push origin feature/your-feature
-4. 在 GitHub 上发起 Pull Request
-
-请在提交中写清变更目的，并补充必要的测试。
-
-## 代码规范
-
-- 请遵循仓库已有的代码风格（如果有 ESLint、Prettier 或 flake8，请使用它们）。
-
-## 许可证
-
-本仓库默认使用 MIT 许可证。若需修改，请在 LICENSE 文件中更新许可证信息。
-
----
-
-如果你希望我把 README 内容改为英文、补充具体的运行命令，或使用不同的许可证（例如 Apache-2.0），告诉我具体要求，我会更新并重新推送.
+此代码为个人练习示例。你可以自由修改并用于学习或演示。若要公开分发或用于商业用途，请检查第三方资源（图像/字体）的使用许可。
+感谢 Pokémon 社区提供的资源与灵感！
